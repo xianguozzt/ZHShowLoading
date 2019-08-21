@@ -7,14 +7,7 @@
 //
 
 #import "ZHShowMessageView.h"
-
 #import "MMProgressHUD.h"
-
-
-@interface ZHShowMessageView ()
-
-@end
-
 @implementation ZHShowMessageView
 static NSMutableArray *arr;
 static NSMutableArray *newarr;
