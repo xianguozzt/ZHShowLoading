@@ -24,13 +24,20 @@ static NSMutableArray *newarr;
     [MMProgressHUD setDisplayStyle:MMProgressHUDDisplayStyleBordered];
     [MMProgressHUD dismissWithSuccess:nil title:message afterDelay:2.0];
 }
++(UIImage *)loadBundleImage:(NSString *)imageName{
+    
+    // 获取当前的bundle,self只是在当前pod库中的一个类，也可以随意写一个其他的类
+    NSBundle *curr = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [curr URLForResource:@"ZHShowLoading" withExtension:@"bundle"];
+    UIImage *img = [UIImage imageNamed:str inBundle:curr compatibleWithTraitCollection:nil];
+}
 + (void)showStatusWithMessage:(NSString *)message
 {
     if(!arr){
         arr = [NSMutableArray array];
         for (int i=0;i<3;i++) {
-            NSString *str= [NSString stringWithFormat:@"ZHShowLoading.bundle/status%d",i];
-            UIImage *img = [UIImage imageNamed:str];
+            NSString *str= [NSString stringWithFormat:@"status%d",i];
+            UIImage *img = [self loadBundleImage:str];
             [arr addObject:img];
         }
     }
@@ -42,8 +49,8 @@ static NSMutableArray *newarr;
     if(!newarr){
         newarr = [NSMutableArray array];
         for (int i=0;i<30;i++) {
-            NSString *str= [NSString stringWithFormat:@"ZHShowLoading.bundle/112440_%02d",2*i+1];
-            UIImage *img = [UIImage imageNamed:str];
+            NSString *str= [NSString stringWithFormat:@"112440_%02d",2*i+1];
+            UIImage *img = [self loadBundleImage:str];
             [newarr addObject:img];
         }
     }

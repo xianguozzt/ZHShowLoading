@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "ZHShowMessageView.h"
 
 FOUNDATION_EXPORT double ZHShowLoadingVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZHShowLoadingVersionString[];

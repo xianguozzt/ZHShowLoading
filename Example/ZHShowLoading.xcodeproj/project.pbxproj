@@ -325,10 +325,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZHShowLoading_Example/Pods-ZHShowLoading_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MMProgressHUD/MMProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ZHShowLoading/ZHShowLoading.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZHShowLoading.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
