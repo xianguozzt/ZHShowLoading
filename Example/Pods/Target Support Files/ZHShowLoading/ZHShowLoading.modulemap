@@ -1,0 +1,6 @@
+framework module ZHShowLoading {
+  umbrella header "ZHShowLoading-umbrella.h"
+
+  export *
+  module * { export * }
+}
