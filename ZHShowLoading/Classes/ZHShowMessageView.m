@@ -28,8 +28,14 @@ static NSMutableArray *newarr;
     
     // 获取当前的bundle,self只是在当前pod库中的一个类，也可以随意写一个其他的类
     NSBundle *curr = [NSBundle bundleForClass:[self class]];
-    UIImage *img = [UIImage imageNamed:imageName inBundle:curr compatibleWithTraitCollection:nil];
-    return img;
+    //NSURL *url = [curr URLForResource:@"ZHShowLoading" withExtension:@"bundle"];
+    NSString *currentBundleName = curr.infoDictionary[@"CFBundleName"];
+    // 获取图片的路径
+    NSString *imagePath = [curr pathForResource:imageName ofType:nil inDirectory:[NSString stringWithFormat:@"%@.bundle",currentBundleName]];
+    // 获取图片
+    UIImage *imageFile = [UIImage imageWithContentsOfFile:imagePath];
+    //UIImage *img = [UIImage imageNamed:imageName inBundle:curr compatibleWithTraitCollection:nil];
+    return imageFile;
 }
 + (void)showStatusWithMessage:(NSString *)message
 {
