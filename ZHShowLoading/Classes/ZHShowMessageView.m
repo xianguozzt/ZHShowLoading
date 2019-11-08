@@ -34,7 +34,9 @@ static NSMutableArray *newarr;
     NSString *imagePath = [curr pathForResource:imageName ofType:nil inDirectory:[NSString stringWithFormat:@"%@.bundle",currentBundleName]];
     // 获取图片
     UIImage *imageFile = [UIImage imageWithContentsOfFile:imagePath];
-    //UIImage *img = [UIImage imageNamed:imageName inBundle:curr compatibleWithTraitCollection:nil];
+    if(!imageFile){
+        imageFile = [UIImage imageNamed:imageName inBundle:curr compatibleWithTraitCollection:nil];
+    }
     return imageFile;
 }
 + (void)showStatusWithMessage:(NSString *)message
@@ -44,7 +46,10 @@ static NSMutableArray *newarr;
         for (int i=0;i<3;i++) {
             NSString *str= [NSString stringWithFormat:@"status%d",i];
             UIImage *img = [self loadBundleImage:str];
-            [arr addObject:img];
+            if(img){
+                [arr addObject:img];
+            }
+                
         }
     }
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleNone];
@@ -57,7 +62,10 @@ static NSMutableArray *newarr;
         for (int i=0;i<30;i++) {
             NSString *str= [NSString stringWithFormat:@"112440_%02d",2*i+1];
             UIImage *img = [self loadBundleImage:str];
-            [newarr addObject:img];
+            if(img){
+                [newarr addObject:img];
+            }
+           
         }
     }
     [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleNone];
